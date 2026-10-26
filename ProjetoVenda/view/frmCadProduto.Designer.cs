@@ -119,6 +119,7 @@
             btnDelete.TabIndex = 7;
             btnDelete.Text = "Excluir Produto";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnUpadete
             // 

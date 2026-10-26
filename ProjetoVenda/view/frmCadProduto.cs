@@ -102,6 +102,7 @@ namespace ProjetoVenda.view
                 loadProduct();
                 this.btnUpadete.Enabled = false;
                 this.btnDelete.Enabled = false;
+                produtoSelecionado = null;
             }
             else
             {
@@ -128,8 +129,36 @@ namespace ProjetoVenda.view
             this.txtQuantidade.Value = produto.quantidade;
             produtoSelecionado = produto;
             this.btnUpadete.Enabled = true;
-            
+            this.btnDelete.Enabled = true;
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            bool resp = controller.deleteProduct(produtoSelecionado);
+            if (resp)
+            {
+                MessageBox.Show(
+                    "Produto excluido com sucesso",
+                    "Exclusão de Produto",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information
+                    );
+                clearField();
+                loadProduct();
+                this.btnUpadete.Enabled = false;
+                this.btnDelete.Enabled = false;
+                produtoSelecionado = null;
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Erro ao excluir o oproduto",
+                    "Exclusão do produto",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information
+                    );
+
+
+            }
         }
     }
 }
-

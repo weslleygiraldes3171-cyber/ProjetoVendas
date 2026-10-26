@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using ProjetoVenda.controller;
+
+namespace ProjetoVenda.view
+{
+    public partial class frmLogin : Form
+    {
+        public frmLogin()
+        {
+            InitializeComponent();
+        }
+
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
+            string usuario = this.txtUser.Text;
+            string senha = this.txtSenha.Text;
+
+            if (EmployeeController.login (usuario, senha))
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Tente novamente",
+                    "Erro de Login",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+            }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

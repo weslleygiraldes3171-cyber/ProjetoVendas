@@ -38,6 +38,9 @@
             dgvProduto = new DataGridView();
             btnDelete = new Button();
             btnUpadete = new Button();
+            btnAnterior = new Button();
+            btnProximo = new Button();
+            lblPagina = new Label();
             ((System.ComponentModel.ISupportInitialize)txtQuantidade).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProduto).BeginInit();
             SuspendLayout();
@@ -108,6 +111,7 @@
             dgvProduto.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProduto.Size = new Size(666, 399);
             dgvProduto.TabIndex = 6;
+            dgvProduto.CellContentClick += dgvProduto_CellContentClick;
             dgvProduto.CellDoubleClick += dgvProduto_CellDoubleClick;
             // 
             // btnDelete
@@ -132,12 +136,46 @@
             btnUpadete.UseVisualStyleBackColor = true;
             btnUpadete.Click += btnUpadete_Click;
             // 
+            // btnAnterior
+            // 
+            btnAnterior.Location = new Point(12, 703);
+            btnAnterior.Name = "btnAnterior";
+            btnAnterior.Size = new Size(88, 48);
+            btnAnterior.TabIndex = 9;
+            btnAnterior.Text = "< Anterior ";
+            btnAnterior.UseVisualStyleBackColor = true;
+            btnAnterior.Click += btnAnterior_Click;
+            // 
+            // btnProximo
+            // 
+            btnProximo.Location = new Point(590, 703);
+            btnProximo.Name = "btnProximo";
+            btnProximo.Size = new Size(88, 48);
+            btnProximo.TabIndex = 10;
+            btnProximo.Text = "Proximo >";
+            btnProximo.UseVisualStyleBackColor = true;
+            btnProximo.Click += btnProximo_Click;
+            // 
+            // lblPagina
+            // 
+            lblPagina.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblPagina.BackColor = SystemColors.ControlLightLight;
+            lblPagina.Location = new Point(231, 721);
+            lblPagina.Name = "lblPagina";
+            lblPagina.Size = new Size(203, 30);
+            lblPagina.TabIndex = 11;
+            lblPagina.Text = "Página 1 de 5";
+            lblPagina.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // frmCadProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HotTrack;
-            ClientSize = new Size(698, 700);
+            ClientSize = new Size(698, 785);
+            Controls.Add(lblPagina);
+            Controls.Add(btnProximo);
+            Controls.Add(btnAnterior);
             Controls.Add(btnUpadete);
             Controls.Add(btnDelete);
             Controls.Add(dgvProduto);
@@ -168,5 +206,8 @@
         private DataGridView dgvProduto;
         private Button btnDelete;
         private Button btnUpadete;
+        private Button btnAnterior;
+        private Button btnProximo;
+        private Label lblPagina;
     }
 }

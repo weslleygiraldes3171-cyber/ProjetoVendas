@@ -18,6 +18,9 @@ namespace ProjetoVenda.view
     {
         private ProductController controller;
         private Product? produtoSelecionado;
+        private int totalPage = 5;
+        private int pageAtual = 1;
+        private int totalByPage = 5;
 
 
         public frmCadProduto()
@@ -67,12 +70,20 @@ namespace ProjetoVenda.view
         private void frmCadProduto_Load(object sender, EventArgs e)
         {
             loadProduct();
+            //int page = controller.countPage(5);
+            //lblPagina.Text = $"1 de {page}";
         }
         private void loadProduct()
         {
-            List<Product> list = controller.getAll();
+            List<Product> list = controller.getListPage(totalPage, pageAtual);
             this.dgvProduto.DataSource = list;
             this.dgvProduto.Columns["id_funcionario"].Visible = false;
+            totalPage = controller.countPage(totalPage);
+            if (pageAtual > totalPage)
+            {
+                pageAtual = totalPage;
+            }
+            updateLblPage();
 
         }
         private void clearField()
@@ -159,6 +170,36 @@ namespace ProjetoVenda.view
 
 
             }
+        }
+
+        private void dgvProduto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (pageAtual > 1)
+            {
+                pageAtual--;
+                updateLblPage();
+                loadProduct();
+            }
+        }
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            if (pageAtual < totalPage)
+            {
+                pageAtual++;
+                updateLblPage();
+                loadProduct();
+            }
+        
+        }
+        private void updateLblPage()
+        {
+            this.lblPagina.Text = $" {pageAtual} de {totalPage}";
         }
     }
 }

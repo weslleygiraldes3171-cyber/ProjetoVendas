@@ -12,12 +12,25 @@ namespace ProjetoVenda
             ApplicationConfiguration.Initialize();
             //Application.Run(new frmLogin());
             //Application.Run(new frmCadProduto());
-            using (frmLogin login = new frmLogin())
+            while (true)
             {
-                if (login.ShowDialog() == DialogResult.OK)
+                using (frmLogin login = new frmLogin())
                 {
-                    Application.Run(new frmPrincipal());
+                    if (login.ShowDialog() != DialogResult.OK)
+                    {
+                        break;
+                    }
                 }
+                using frmPrincipal principal = new frmPrincipal();
+                {
+
+                    Application.Run(principal);
+                    if (principal.DialogResult != DialogResult.Retry)
+                    {
+                        break;
+                    }
+                }
+
             }
 
         }

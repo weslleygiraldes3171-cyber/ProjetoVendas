@@ -34,7 +34,8 @@ namespace ProjetoVenda.controller
         {
             int id_funcionario = Session.userAuth.id_funcionario;
             product.id_funcionario = id_funcionario;
-            //chamar a repository
+            product.validate();
+            // fazer o cadastro
             repository.createProduct(product);
             return true;
         }

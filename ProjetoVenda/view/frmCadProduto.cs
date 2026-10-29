@@ -44,47 +44,53 @@ namespace ProjetoVenda.view
                 preco = preco,
                 quantidade = quantidade
             };
-
-            bool resp = controller.createProduct(product);
-            if (resp)
+            try
             {
-                MessageBox.Show("Produto cadastrado com sucesso",
-                    "Cadastro Produto",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                clearField();
-                loadProduct();
-            }
-            else
+                bool resp = controller.createProduct(product);
+                if (resp)
+                {
+                    MessageBox.Show("Produto cadastrado com sucesso",
+                        "Cadastro Produto",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    clearField();
+                    loadProduct();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadastrar Produto",
+                        "Cadastro de Produto",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }catch(Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar Produto",
-                    "Cadastro de Produto",
+                MessageBox.Show(ex.Message, "Erro no produto",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-        }
+            
 
+        }
+        
         private void txtNome_TextChanged(object sender, EventArgs e)
         {
 
         }
         private void frmCadProduto_Load(object sender, EventArgs e)
         {
+            this.cbxQuantidadeItens.SelectedIndex = 0;
             loadProduct();
-            //int page = controller.countPage(5);
-            //lblPagina.Text = $"1 de {page}";
         }
         private void loadProduct()
         {
-            List<Product> list = controller.getListPage(totalPage, pageAtual);
-            this.dgvProduto.DataSource = list;
-            this.dgvProduto.Columns["id_funcionario"].Visible = false;
-            totalPage = controller.countPage(totalPage);
+            totalPage = controller.countPage(totalByPage);
             if (pageAtual > totalPage)
             {
                 pageAtual = totalPage;
             }
             updateLblPage();
-
+            List<Product> list = controller.getListPage(totalByPage, pageAtual);
+            this.dgvProduto.DataSource = list;
+            this.dgvProduto.Columns["id_funcionario"].Visible = false;
         }
         private void clearField()
         {
@@ -195,11 +201,19 @@ namespace ProjetoVenda.view
                 updateLblPage();
                 loadProduct();
             }
-        
+
         }
         private void updateLblPage()
         {
             this.lblPagina.Text = $" {pageAtual} de {totalPage}";
+        }
+
+        private void cbxQuantidadeItens_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // capturrar o numero
+            this.totalByPage = int.Parse(this.cbxQuantidadeItens.Text);
+            // e recacular as paginas
+            loadProduct();
         }
     }
 }

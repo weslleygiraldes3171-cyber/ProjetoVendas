@@ -50,7 +50,6 @@ namespace ProjetoVenda.controller
 
             }
 
-
             string hash = BCrypt.Net.BCrypt.HashPassword(senha);
             Employee funcionario = new Employee
             {
@@ -67,5 +66,14 @@ namespace ProjetoVenda.controller
 
             return true;
         }
+        public void deslogar()
+        {
+            Session.userAuth = null;
+        }
+        public Employee? usuarioAutenticado()
+        {
+            return Session.userAuth;
+        }
+
     }
 }

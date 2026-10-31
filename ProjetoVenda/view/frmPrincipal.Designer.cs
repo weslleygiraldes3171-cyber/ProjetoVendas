@@ -34,9 +34,10 @@
             label1 = new Label();
             label2 = new Label();
             panel1 = new Panel();
+            btnSaida = new Button();
             panel2 = new Panel();
             painelPrincipal = new Panel();
-            btnSaida = new Button();
+            btnUser = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -83,6 +84,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnUser);
             panel1.Controls.Add(btnSaida);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(bntCadFuncionario);
@@ -93,6 +95,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(223, 602);
             panel1.TabIndex = 6;
+            // 
+            // btnSaida
+            // 
+            btnSaida.Location = new Point(27, 543);
+            btnSaida.Name = "btnSaida";
+            btnSaida.Size = new Size(179, 32);
+            btnSaida.TabIndex = 6;
+            btnSaida.Text = "Sair";
+            btnSaida.UseVisualStyleBackColor = true;
+            btnSaida.Click += btnSaida_Click;
             // 
             // panel2
             // 
@@ -110,15 +122,15 @@
             painelPrincipal.Size = new Size(887, 524);
             painelPrincipal.TabIndex = 8;
             // 
-            // btnSaida
+            // btnUser
             // 
-            btnSaida.Location = new Point(27, 543);
-            btnSaida.Name = "btnSaida";
-            btnSaida.Size = new Size(179, 32);
-            btnSaida.TabIndex = 6;
-            btnSaida.Text = "Sair";
-            btnSaida.UseVisualStyleBackColor = true;
-            btnSaida.Click += btnSaida_Click;
+            btnUser.Location = new Point(27, 434);
+            btnUser.Name = "btnUser";
+            btnUser.Size = new Size(179, 85);
+            btnUser.TabIndex = 7;
+            btnUser.Text = "Perfil do Usuario";
+            btnUser.UseVisualStyleBackColor = true;
+            btnUser.Click += btnUser_Click;
             // 
             // frmPrincipal
             // 
@@ -147,5 +159,6 @@
         private Panel panel2;
         private Panel painelPrincipal;
         private Button btnSaida;
+        private Button btnUser;
     }
 }

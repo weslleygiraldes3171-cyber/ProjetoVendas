@@ -6,14 +6,20 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using ProjetoVenda.controller;
+using ProjetoVenda.model;
 
 namespace ProjetoVenda.view
 {
     public partial class frmPrincipal : Form
     {
+        private EmployeeController controller;
         public frmPrincipal()
         {
             InitializeComponent();
+            controller = new EmployeeController();
+            Employee? funcionario = controller.usuarioAutenticado();
+            string nome = (funcionario != null) ? funcionario.nome : " ";
+            this.Text += $" - {nome}";
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
@@ -51,9 +57,15 @@ namespace ProjetoVenda.view
 
         private void btnSaida_Click(object sender, EventArgs e)
         {
-            // evento para sair
+            controller.deslogar();
             this.DialogResult = DialogResult.Retry;
             this.Dispose();
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            frmPerfilUsuario frm = new frmPerfilUsuario();
+            exibirForms(frm);
         }
     }
 }

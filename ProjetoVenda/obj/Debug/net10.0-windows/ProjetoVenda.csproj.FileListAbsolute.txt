@@ -32,3 +32,5 @@ C:\Users\weslley.hggiraldes\source\repos\ProjetoVenda\ProjetoVenda\bin\Debug\net
 C:\Users\weslley.hggiraldes\source\repos\ProjetoVenda\ProjetoVenda\bin\Debug\net10.0-windows\Microsoft.Extensions.Primitives.dll
 C:\Users\weslley.hggiraldes\source\repos\ProjetoVenda\ProjetoVenda\bin\Debug\net10.0-windows\BCrypt-Net-Next.dll
 C:\Users\weslley.hggiraldes\source\repos\ProjetoVenda\ProjetoVenda\obj\Debug\net10.0-windows\ProjetoVenda.view.frmCadProduto.resources
+C:\Users\weslley.hggiraldes\source\repos\ProjetoVenda\ProjetoVenda\obj\Debug\net10.0-windows\ProjetoVenda.sourcelink.json
+C:\Users\weslley.hggiraldes\source\repos\ProjetoVenda\ProjetoVenda\obj\Debug\net10.0-windows\ProjetoVenda.view.frmPerfilUsuario.resources

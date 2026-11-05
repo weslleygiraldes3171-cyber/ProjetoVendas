@@ -1,20 +1,28 @@
-﻿using System;
+﻿using ProjetoVenda.controller;
+using ProjetoVenda.model;
+using ProjetoVenda.repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Security.Policy;
 using System.Text;
 using System.Windows.Forms;
-using ProjetoVenda.controller;
+
 
 namespace ProjetoVenda.view
 {
     public partial class frmCadastroFuncionario : Form
     {
+        private EmployeeController controller;
+        private Employee employee;
         public frmCadastroFuncionario()
         {
             InitializeComponent();
+            controller = new EmployeeController();
         }
+
         private void limpaTudo()
         {
             txtNome.Clear();
@@ -43,6 +51,8 @@ namespace ProjetoVenda.view
             string senha = this.txtSenha.Text;
             string senha1 = this.txtSenha1.Text;
 
+            bool adm = (this.cbxAdm.SelectedIndex == 0)? false: true;
+
             if (senha != senha1)
             {
                 MessageBox.Show(
@@ -53,8 +63,21 @@ namespace ProjetoVenda.view
                 return;
 
             }
+            Employee employee = new Employee
+            {
+                nome = nome,
+                telefone = telefone,
+                rua = rua,
+                numero = numero,
+                cep = cep,
+                complemento = complemento,
+                usuario = usuario,
+                senha = senha,
+                adm = adm
+            };
+
             EmployeeController controller = new EmployeeController();
-            bool resp = controller.createEmployee(nome, telefone, rua, numero, cep, complemento, usuario, senha);
+            bool resp = controller.createEmployee(employee);
 
             if (resp)
             {
@@ -63,6 +86,7 @@ namespace ProjetoVenda.view
                     "cadastro realizado",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 limpaTudo();
+                loadEmployee();
 
             }
             else
@@ -73,16 +97,20 @@ namespace ProjetoVenda.view
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+            
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        
+        private void loadEmployee()
         {
-
+            List<Employee> list = controller.getAll();
+            this.dgvEmployee.DataSource = list;
+            this.dgvEmployee.Columns["senha"].Visible = false;
         }
 
-
-
-        //chamar o controlador do usuario para criar o funcinario
-        //solicitar ao repository se o usuario existe ou nao
+        private void frmCadastroFuncionario_Load(object sender, EventArgs e)
+        {
+            loadEmployee();
+            this.cbxAdm.SelectedIndex = 0;
+        }
     }
 }

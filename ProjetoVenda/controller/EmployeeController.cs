@@ -9,6 +9,16 @@ namespace ProjetoVenda.controller
 {
     internal class EmployeeController
     {
+        private EmployeeRepository repository;
+
+        public EmployeeController()
+        {
+            repository = new EmployeeRepository();
+        }
+        public List<Employee> getAll()
+        {
+            return repository.getAll();
+        }
 
         public static bool login(string username, string password)
         {
@@ -37,12 +47,10 @@ namespace ProjetoVenda.controller
             return true;
         }
 
-        public bool createEmployee(string nome, string telefone, string rua, 
-                                    string numero, string cep, string complemento,
-                                        string usuario, string senha)
+        public bool createEmployee(Employee employee)
         {
             EmployeeRepository repository = new EmployeeRepository();
-            Employee? resp = repository.getByUsername(usuario);
+            Employee? resp = repository.getByUsername(employee.usuario);
             if (resp != null)
             {
 
@@ -50,20 +58,10 @@ namespace ProjetoVenda.controller
 
             }
 
-            string hash = BCrypt.Net.BCrypt.HashPassword(senha);
-            Employee funcionario = new Employee
-            {
-                nome = nome,
-                telefone = telefone,
-                rua = rua,
-                numero = numero,
-                cep = cep,
-                complemento = complemento,
-                usuario = usuario,
-                senha = hash
-            };
-            repository.createEmployee(funcionario);
+            string hash = BCrypt.Net.BCrypt.HashPassword(employee.senha);
+            employee.senha = hash;
 
+            repository.createEmployee(employee);
             return true;
         }
         public void deslogar()
@@ -74,6 +72,15 @@ namespace ProjetoVenda.controller
         {
             return Session.userAuth;
         }
+        public bool userAdmin()
+        {
+            if (Session.userAuth == null)
+            {
+                return false;
+            }
+            return Session.userAuth.adm;
+        }
+        
 
     }
 }

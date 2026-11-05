@@ -40,11 +40,14 @@
             txtNome = new TextBox();
             bntCadastrar = new Button();
             label1 = new Label();
+            dgvEmployee = new DataGridView();
+            cbxAdm = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)dgvEmployee).BeginInit();
             SuspendLayout();
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(320, 162);
+            txtSenha.Location = new Point(421, 162);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '*';
             txtSenha.PlaceholderText = "Senha";
@@ -53,7 +56,7 @@
             // 
             // txtTelefone
             // 
-            txtTelefone.Location = new Point(43, 162);
+            txtTelefone.Location = new Point(125, 162);
             txtTelefone.Name = "txtTelefone";
             txtTelefone.PlaceholderText = "Telefone";
             txtTelefone.Size = new Size(213, 23);
@@ -61,7 +64,7 @@
             // 
             // txtSenha1
             // 
-            txtSenha1.Location = new Point(320, 214);
+            txtSenha1.Location = new Point(420, 214);
             txtSenha1.Name = "txtSenha1";
             txtSenha1.PasswordChar = '*';
             txtSenha1.PlaceholderText = "Confirmar senha";
@@ -70,7 +73,7 @@
             // 
             // txtRua
             // 
-            txtRua.Location = new Point(43, 214);
+            txtRua.Location = new Point(125, 214);
             txtRua.Name = "txtRua";
             txtRua.PlaceholderText = "Rua";
             txtRua.Size = new Size(213, 23);
@@ -78,7 +81,7 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(320, 108);
+            txtUsuario.Location = new Point(420, 108);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.PlaceholderText = "Usuário";
             txtUsuario.Size = new Size(212, 23);
@@ -86,7 +89,7 @@
             // 
             // txtNumero
             // 
-            txtNumero.Location = new Point(43, 259);
+            txtNumero.Location = new Point(125, 259);
             txtNumero.Name = "txtNumero";
             txtNumero.PlaceholderText = "Número";
             txtNumero.Size = new Size(89, 23);
@@ -94,7 +97,7 @@
             // 
             // txtCep
             // 
-            txtCep.Location = new Point(156, 259);
+            txtCep.Location = new Point(238, 259);
             txtCep.Name = "txtCep";
             txtCep.PlaceholderText = "CEP";
             txtCep.Size = new Size(100, 23);
@@ -102,7 +105,7 @@
             // 
             // txtComplemento
             // 
-            txtComplemento.Location = new Point(43, 310);
+            txtComplemento.Location = new Point(125, 310);
             txtComplemento.Name = "txtComplemento";
             txtComplemento.PlaceholderText = "Complemento";
             txtComplemento.Size = new Size(213, 23);
@@ -110,7 +113,7 @@
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(43, 108);
+            txtNome.Location = new Point(125, 108);
             txtNome.Name = "txtNome";
             txtNome.PlaceholderText = "Nome completo";
             txtNome.Size = new Size(213, 23);
@@ -119,9 +122,9 @@
             // bntCadastrar
             // 
             bntCadastrar.ForeColor = SystemColors.ControlText;
-            bntCadastrar.Location = new Point(381, 252);
+            bntCadastrar.Location = new Point(486, 297);
             bntCadastrar.Name = "bntCadastrar";
-            bntCadastrar.Size = new Size(103, 81);
+            bntCadastrar.Size = new Size(103, 46);
             bntCadastrar.TabIndex = 9;
             bntCadastrar.Text = "Cadastro";
             bntCadastrar.UseVisualStyleBackColor = true;
@@ -129,22 +132,38 @@
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Light", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.WindowText;
-            label1.Location = new Point(124, 26);
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(313, 40);
-            label1.TabIndex = 10;
-            label1.Text = "Cadastro de Funcionario";
-            label1.Click += label1_Click;
+            label1.Size = new Size(100, 23);
+            label1.TabIndex = 12;
+            // 
+            // dgvEmployee
+            // 
+            dgvEmployee.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEmployee.Location = new Point(12, 353);
+            dgvEmployee.Name = "dgvEmployee";
+            dgvEmployee.Size = new Size(837, 359);
+            dgvEmployee.TabIndex = 11;
+            // 
+            // cbxAdm
+            // 
+            cbxAdm.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxAdm.FormattingEnabled = true;
+            cbxAdm.Items.AddRange(new object[] { "Administrador ", "Funcionario" });
+            cbxAdm.Location = new Point(421, 259);
+            cbxAdm.Name = "cbxAdm";
+            cbxAdm.Size = new Size(211, 23);
+            cbxAdm.TabIndex = 13;
             // 
             // frmCadastroFuncionario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Highlight;
-            ClientSize = new Size(549, 378);
+            ClientSize = new Size(879, 724);
+            Controls.Add(cbxAdm);
+            Controls.Add(dgvEmployee);
             Controls.Add(label1);
             Controls.Add(bntCadastrar);
             Controls.Add(txtNome);
@@ -156,10 +175,12 @@
             Controls.Add(txtSenha1);
             Controls.Add(txtTelefone);
             Controls.Add(txtSenha);
-            ForeColor = SystemColors.Highlight;
+            ForeColor = SystemColors.Desktop;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmCadastroFuncionario";
             Text = "Cadastro de Funcionario";
+            Load += frmCadastroFuncionario_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvEmployee).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -177,5 +198,7 @@
         private TextBox txtNome;
         private Button bntCadastrar;
         private Label label1;
+        private DataGridView dgvEmployee;
+        private ComboBox cbxAdm;
     }
 }

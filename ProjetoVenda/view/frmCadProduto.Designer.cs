@@ -106,7 +106,7 @@
             dgvProduto.AllowUserToDeleteRows = false;
             dgvProduto.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProduto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProduto.Location = new Point(12, 269);
+            dgvProduto.Location = new Point(12, 282);
             dgvProduto.MultiSelect = false;
             dgvProduto.Name = "dgvProduto";
             dgvProduto.ReadOnly = true;

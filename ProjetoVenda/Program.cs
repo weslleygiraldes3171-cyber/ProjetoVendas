@@ -11,7 +11,7 @@ namespace ProjetoVenda
 
             ApplicationConfiguration.Initialize();
             //Application.Run(new frmLogin());
-            //Application.Run(new frmCadProduto());
+            //Application.Run(new frmCadastroFuncionario());
             while (true)
             {
                 using (frmLogin login = new frmLogin())

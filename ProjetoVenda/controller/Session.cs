@@ -9,8 +9,6 @@ namespace ProjetoVenda.controller
     {
         public static Employee? userAuth;
 
-        public static bool isAdmin = false;
-        internal static string username;
     }
     
 }

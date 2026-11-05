@@ -24,11 +24,28 @@ namespace ProjetoVenda.repository
                 rua = (reader.IsDBNull(reader.GetOrdinal("rua")))? null : reader.GetString("rua"),
                 numero = reader.GetString("numero"),
                 complemento = (reader.IsDBNull(reader.GetOrdinal("Complemento"))) ? null : reader.GetString("Complemento"),
-                cep = reader.GetString("CEP")
+                cep = reader.GetString("CEP"),
+                adm = reader.GetBoolean("adm")
 
             };
 
         }
+        
+        public List<Employee> getAll()
+        {
+            using MySqlConnection connector = Database.GetConnection();
+            string sql = "SELECT * FROM funcionario";
+            using MySqlCommand cmd = new MySqlCommand(sql, connector);
+            using var reader = cmd.ExecuteReader();
+
+            List<Employee> list = new List<Employee>();
+            while (reader.Read())
+            {
+                list.Add(map(reader));
+            }
+            return list;
+        }
+        
         public Employee? getByUsername(string username)
         {
 
@@ -49,9 +66,9 @@ namespace ProjetoVenda.repository
         {
             using MySqlConnection connector = Database.GetConnection();
             string sql = @"INSERT INTO funcionario
-                            (nome, usuario, senha, telefone, rua, numero, complemento, cep)
+                            (nome, usuario, senha, telefone, rua, numero, complemento, cep, adm)
                             VALUES
-                            (@nome, @usuario, @senha, @telefone, @rua, @numero, @complemento, @cep)";
+                            (@nome, @usuario, @senha, @telefone, @rua, @numero, @complemento, @cep, @adm)";
             using MySqlCommand cmd = new MySqlCommand(sql, connector);
             cmd.Parameters.AddWithValue("@nome", employee.nome);
             cmd.Parameters.AddWithValue("@usuario", employee.usuario);
@@ -61,6 +78,7 @@ namespace ProjetoVenda.repository
             cmd.Parameters.AddWithValue("@numero", employee.numero);
             cmd.Parameters.AddWithValue("@complemento", employee.complemento);
             cmd.Parameters.AddWithValue("@cep", employee.cep);
+            cmd.Parameters.AddWithValue("@adm", employee.adm);
             cmd.ExecuteNonQuery();
             return (int)cmd.LastInsertedId;
         }

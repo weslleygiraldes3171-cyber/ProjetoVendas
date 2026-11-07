@@ -26,7 +26,7 @@ namespace ProjetoVenda.view
         {
 
             bool adm = controller.userAdmin();
-            if ( adm)
+            if (adm)
             {
                 this.bntCadFuncionario.Visible = false;
             }
@@ -40,6 +40,9 @@ namespace ProjetoVenda.view
             forms.TopLevel = false;
             forms.FormBorderStyle = FormBorderStyle.None;
             forms.Dock = DockStyle.Fill;
+
+            this.lblTitulo.Text = forms.Text;
+
             painelPrincipal.Controls.Add(forms);
             forms.Show();
         }
@@ -67,6 +70,12 @@ namespace ProjetoVenda.view
         private void btnUser_Click(object sender, EventArgs e)
         {
             frmPerfilUsuario frm = new frmPerfilUsuario();
+            exibirForms(frm);
+        }
+
+        private void btnCadVenda_Click(object sender, EventArgs e)
+        {
+            frmVenda frm = new frmVenda();
             exibirForms(frm);
         }
     }

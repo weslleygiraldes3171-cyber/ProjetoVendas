@@ -16,5 +16,8 @@
     <Compile Update="view\frmPerfilUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="view\frmVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

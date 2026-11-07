@@ -40,6 +40,8 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // txtNome
@@ -138,12 +140,23 @@
             label6.TabIndex = 17;
             label6.Text = "CEP";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.vecteezy_user_profile_icon_profile_avatar_user_icon_male_icon_20911750;
+            pictureBox1.Location = new Point(28, 292);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(126, 131);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 18;
+            pictureBox1.TabStop = false;
+            // 
             // frmPerfilUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Highlight;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -157,8 +170,9 @@
             Controls.Add(txtTelefone);
             Controls.Add(txtNome);
             Name = "frmPerfilUsuario";
-            Text = "perfilUsuario";
+            Text = "Perfil Usuario";
             Load += frmPerfilUsuario_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -177,5 +191,6 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private PictureBox pictureBox1;
     }
 }

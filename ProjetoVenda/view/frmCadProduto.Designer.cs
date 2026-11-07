@@ -183,7 +183,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.HotTrack;
+            BackColor = SystemColors.Highlight;
             ClientSize = new Size(698, 772);
             Controls.Add(cbxQuantidadeItens);
             Controls.Add(lblPagina);

@@ -15,6 +15,8 @@ namespace ProjetoVenda.model
         public int preco { get; set; }
         public DateTime data_registro { get; set; }
 
+        public decimal precoReal => this.preco / 100m;
+
         public void validate()
         {
             if (preco <= 0)

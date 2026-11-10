@@ -98,7 +98,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(223, 602);
+            panel1.Size = new Size(223, 849);
             panel1.TabIndex = 6;
             // 
             // btnCadVenda
@@ -158,7 +158,7 @@
             painelPrincipal.Dock = DockStyle.Fill;
             painelPrincipal.Location = new Point(223, 78);
             painelPrincipal.Name = "painelPrincipal";
-            painelPrincipal.Size = new Size(887, 524);
+            painelPrincipal.Size = new Size(887, 771);
             painelPrincipal.TabIndex = 8;
             // 
             // frmPrincipal
@@ -166,7 +166,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Highlight;
-            ClientSize = new Size(1110, 602);
+            ClientSize = new Size(1110, 849);
             Controls.Add(painelPrincipal);
             Controls.Add(panel2);
             Controls.Add(panel1);

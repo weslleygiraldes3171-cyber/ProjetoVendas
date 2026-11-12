@@ -16,11 +16,14 @@ namespace ProjetoVenda.view
     public partial class frmVenda : Form
     {
         private ProductController productController;
+        private VendaControle vendaControle;
         private List<Item> carrinho = new List<Item>();
         public frmVenda()
         {
             InitializeComponent();
             productController = new ProductController();
+            vendaControle = new VendaControle();
+
         }
         private void loadProduct()
         {
@@ -38,7 +41,7 @@ namespace ProjetoVenda.view
                 {
                     HeaderText = "Produto",
                     Name = "colunaProduto",
-                    DataPropertyName = "nome",
+                    DataPropertyName = "nomeProduto",
 
                 });
             this.dgvCarrinho.Columns.Add(
@@ -87,8 +90,7 @@ namespace ProjetoVenda.view
 
         public void atualizarCarrinho()
         {
-            this.dgvCarrinho.DataSource = null;
-            this.dgvCarrinho.DataSource = this.carrinho;
+            this.dgvCarrinho.DataSource = this.carrinho.ToList();
             this.btnCadVenda.Visible = this.carrinho.Count() > 0;
             decimal total = this.carrinho.Sum(item => item.subTotal);
             this.lblPrecoTotal.Text = $"Total da venda {total:c2}";
@@ -123,7 +125,7 @@ namespace ProjetoVenda.view
                     cod_produto = product.cod_produto,
                     quantidade = quantidade,
                     preco = product.preco,
-                    nome = product.nome,
+                    nomeProduto = product.nome,
                     marca = product.marca,
                 };
                 this.carrinho.Add(novoItem);
@@ -152,10 +154,30 @@ namespace ProjetoVenda.view
             {
                 return;
             }
-            carrinho.Clear();
-            frmVenda_Load(this, EventArgs.Empty);
-            atualizarCarrinho();
-            MessageBox.Show("Venda cadastrada com sucesso!!!");
+            try
+            {
+                bool resposta = vendaControle.cadVenda(this.carrinho);
+                if (resposta)
+                {
+                    carrinho.Clear();
+                    frmVenda_Load(this, EventArgs.Empty);
+                    atualizarCarrinho();
+                    MessageBox.Show("Venda cadastrada com sucesso!!!");
+                }
+                else
+                {
+                    MessageBox.Show
+                        ("Erro ao caddastrar Venda!", "Erro no cadastro", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error );
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show
+                    ($"Erro: {ex.Message}", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

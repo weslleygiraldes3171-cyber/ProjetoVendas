@@ -11,7 +11,7 @@ namespace ProjetoVenda.model
         public int cod_venda { get; set; }
         public int quantidade { get; set; }
         public int preco { get; set; }
-        public string nome { get; set; }
+        public string nomeProduto { get; set; }
         public string marca { get; set; }
 
         public DateTime data_registro { get; set; }

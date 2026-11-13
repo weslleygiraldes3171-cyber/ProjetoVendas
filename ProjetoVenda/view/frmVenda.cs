@@ -60,6 +60,14 @@ namespace ProjetoVenda.view
                     DataPropertyName = "quantidade",
 
                 });
+            this.dgvCarrinho.Columns.Add(
+                new DataGridViewButtonColumn
+                {
+                    HeaderText = "Excluir",
+                    Name = "colunaExcluir",
+                    Text = "Excluir",
+                    UseColumnTextForButtonValue = true
+                });
 
             this.dgvCarrinho.Columns.Add(
                 new DataGridViewTextBoxColumn
@@ -73,6 +81,7 @@ namespace ProjetoVenda.view
                     }
 
                 });
+
 
             this.dgvCarrinho.Columns.Add(
                 new DataGridViewTextBoxColumn
@@ -150,7 +159,7 @@ namespace ProjetoVenda.view
                 "Confiamar Venda",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question
                 );
-            if( comfimar == DialogResult.No)
+            if (comfimar == DialogResult.No)
             {
                 return;
             }
@@ -167,10 +176,10 @@ namespace ProjetoVenda.view
                 else
                 {
                     MessageBox.Show
-                        ("Erro ao caddastrar Venda!", "Erro no cadastro", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Error );
+                        ("Erro ao caddastrar Venda!", "Erro no cadastro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -178,6 +187,33 @@ namespace ProjetoVenda.view
                     ($"Erro: {ex.Message}", "Erro",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex == -1)
+            {
+                return;
+            }
+            if(this.dgvCarrinho.Columns[e.ColumnIndex].Name == ("colunaExcluir"))
+            {
+                excluirItemCarrinho(e.RowIndex);
+            }
+        }
+        private  void excluirItemCarrinho(int indice)
+        {
+            DialogResult comfimar = MessageBox.Show(
+                $"Deseja excluir o item",
+                "Excluir item",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                );
+            if (comfimar == DialogResult.No)
+            {
+                return;
+            }
+            this.carrinho.RemoveAt(indice);
+            atualizarCarrinho();
+
         }
     }
 }

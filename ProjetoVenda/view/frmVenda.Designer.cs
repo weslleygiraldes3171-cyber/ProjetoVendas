@@ -97,6 +97,7 @@
             dgvCarrinho.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCarrinho.Size = new Size(766, 285);
             dgvCarrinho.TabIndex = 5;
+            dgvCarrinho.CellContentClick += dgvCarrinho_CellContentClick;
             // 
             // lblPrecoTotal
             // 

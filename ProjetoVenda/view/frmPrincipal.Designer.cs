@@ -32,7 +32,7 @@
             bntCadFuncionario = new Button();
             btnCadProduto = new Button();
             label1 = new Label();
-            label2 = new Label();
+            lblFucnionario = new Label();
             panel1 = new Panel();
             btnCadVenda = new Button();
             btnUser = new Button();
@@ -76,15 +76,15 @@
             label1.TabIndex = 4;
             label1.Text = "Seja Bem Vindo";
             // 
-            // label2
+            // lblFucnionario
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(27, 78);
-            label2.Name = "label2";
-            label2.Size = new Size(165, 40);
-            label2.TabIndex = 5;
-            label2.Text = "Funcionario\r\n";
+            lblFucnionario.AutoSize = true;
+            lblFucnionario.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFucnionario.Location = new Point(27, 78);
+            lblFucnionario.Name = "lblFucnionario";
+            lblFucnionario.Size = new Size(165, 40);
+            lblFucnionario.TabIndex = 5;
+            lblFucnionario.Text = "Funcionario\r\n";
             // 
             // panel1
             // 
@@ -94,7 +94,7 @@
             panel1.Controls.Add(btnSaida);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(bntCadFuncionario);
-            panel1.Controls.Add(label2);
+            panel1.Controls.Add(lblFucnionario);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -184,7 +184,7 @@
         private Button bntCadFuncionario;
         private Button btnCadProduto;
         private Label label1;
-        private Label label2;
+        private Label lblFucnionario;
         private Panel panel1;
         private Panel panel2;
         private Panel painelPrincipal;

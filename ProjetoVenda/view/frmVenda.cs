@@ -125,6 +125,10 @@ namespace ProjetoVenda.view
         {
             Product product = this.cbxProduto.SelectedItem as Product;
             int quantidade = (int)this.numQuantidade.Value;
+            if (quantidade < 1)
+            {
+                return;
+            }
 
             Item? itemExistente = this.carrinho.FirstOrDefault(item => item.cod_produto == product.cod_produto);
             if (itemExistente == null)

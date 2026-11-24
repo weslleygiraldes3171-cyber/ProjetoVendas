@@ -21,7 +21,7 @@ namespace ProjetoVenda.view
             string usuario = this.txtUser.Text;
             string senha = this.txtSenha.Text;
 
-            if (FuncionarioControle.sessao (usuario, senha))
+            if (FuncionarioControle.sessao(usuario, senha))
             {
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -38,6 +38,16 @@ namespace ProjetoVenda.view
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSenha_TextChanged(object sender, EventArgs e)
         {
 
         }

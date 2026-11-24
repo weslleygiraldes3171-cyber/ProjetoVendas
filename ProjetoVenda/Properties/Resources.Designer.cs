@@ -79,5 +79,15 @@ namespace ProjetoVenda.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vecteezy_user_profile_icon_profile_avatar_user_icon_male_icon_209117501 {
+            get {
+                object obj = ResourceManager.GetObject("vecteezy_user-profile-icon-profile-avatar-user-icon-male-icon_209117501", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -66,6 +66,8 @@ namespace ProjetoVenda.view
                 MessageBox.Show(ex.Message, "Erro no produto",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            this.btnUpadete.Enabled = false;
+            this.btnDelete.Enabled = false;
 
             
 
@@ -129,6 +131,8 @@ namespace ProjetoVenda.view
                     MessageBoxButtons.OK, MessageBoxIcon.Information
                     );
             }
+            this.btnUpadete.Enabled = false;
+            this.btnDelete.Enabled = false;
         }
 
         private void dgvProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -176,6 +180,8 @@ namespace ProjetoVenda.view
 
 
             }
+            this.btnUpadete.Enabled = false;
+            this.btnDelete.Enabled = false;
         }
 
         private void dgvProduto_CellContentClick(object sender, DataGridViewCellEventArgs e)

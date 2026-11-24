@@ -46,42 +46,42 @@
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(116, 34);
+            txtNome.Location = new Point(126, 31);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(637, 23);
             txtNome.TabIndex = 0;
             // 
             // txtTelefone
             // 
-            txtTelefone.Location = new Point(116, 83);
+            txtTelefone.Location = new Point(126, 80);
             txtTelefone.Name = "txtTelefone";
-            txtTelefone.Size = new Size(124, 23);
+            txtTelefone.Size = new Size(637, 23);
             txtTelefone.TabIndex = 3;
             // 
             // txtRua
             // 
-            txtRua.Location = new Point(116, 131);
+            txtRua.Location = new Point(126, 128);
             txtRua.Name = "txtRua";
             txtRua.Size = new Size(305, 23);
             txtRua.TabIndex = 5;
             // 
             // txtCep
             // 
-            txtCep.Location = new Point(524, 131);
+            txtCep.Location = new Point(491, 178);
             txtCep.Name = "txtCep";
-            txtCep.Size = new Size(169, 23);
+            txtCep.Size = new Size(272, 23);
             txtCep.TabIndex = 7;
             // 
             // txtComplemento
             // 
-            txtComplemento.Location = new Point(116, 181);
+            txtComplemento.Location = new Point(126, 178);
             txtComplemento.Name = "txtComplemento";
             txtComplemento.Size = new Size(305, 23);
             txtComplemento.TabIndex = 9;
             // 
             // txtUser
             // 
-            txtUser.Location = new Point(116, 220);
+            txtUser.Location = new Point(126, 217);
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(137, 23);
             txtUser.TabIndex = 11;
@@ -89,7 +89,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(28, 42);
+            label1.Location = new Point(38, 39);
             label1.Name = "label1";
             label1.Size = new Size(40, 15);
             label1.TabIndex = 12;
@@ -98,7 +98,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(28, 91);
+            label2.Location = new Point(38, 88);
             label2.Name = "label2";
             label2.Size = new Size(52, 15);
             label2.TabIndex = 13;
@@ -107,7 +107,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(28, 139);
+            label3.Location = new Point(38, 136);
             label3.Name = "label3";
             label3.Size = new Size(27, 15);
             label3.TabIndex = 14;
@@ -116,7 +116,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(28, 189);
+            label4.Location = new Point(38, 186);
             label4.Name = "label4";
             label4.Size = new Size(84, 15);
             label4.TabIndex = 15;
@@ -125,7 +125,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(28, 228);
+            label5.Location = new Point(38, 225);
             label5.Name = "label5";
             label5.Size = new Size(47, 15);
             label5.TabIndex = 16;
@@ -134,7 +134,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(463, 139);
+            label6.Location = new Point(457, 181);
             label6.Name = "label6";
             label6.Size = new Size(28, 15);
             label6.TabIndex = 17;
@@ -143,7 +143,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.vecteezy_user_profile_icon_profile_avatar_user_icon_male_icon_20911750;
-            pictureBox1.Location = new Point(28, 292);
+            pictureBox1.Location = new Point(38, 286);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(126, 131);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;

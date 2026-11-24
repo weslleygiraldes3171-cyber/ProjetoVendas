@@ -1,13 +1,14 @@
-﻿using System;
+﻿using ProjetoVenda.controle;
+using ProjetoVenda.controller;
+using ProjetoVenda.model;
+using ProjetoVenda.repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using ProjetoVenda.controller;
-using ProjetoVenda.model;
-using ProjetoVenda.repository;
 
 
 
@@ -17,12 +18,14 @@ namespace ProjetoVenda.view
     {
         private ProdutoControle productController;
         private VendaControle vendaControle;
+        private Relatorio relatorio;
         private List<Item> carrinho = new List<Item>();
         public frmVenda()
         {
             InitializeComponent();
             productController = new ProdutoControle();
             vendaControle = new VendaControle();
+            relatorio = new Relatorio();
 
         }
         private void loadProduct()
@@ -176,6 +179,7 @@ namespace ProjetoVenda.view
                     frmVenda_Load(this, EventArgs.Empty);
                     atualizarCarrinho();
                     MessageBox.Show("Venda cadastrada com sucesso!!!");
+                    relatorio.salvarPdf();
                 }
                 else
                 {

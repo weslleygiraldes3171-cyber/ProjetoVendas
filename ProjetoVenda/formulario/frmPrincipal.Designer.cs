@@ -46,6 +46,7 @@
             // 
             // bntCadFuncionario
             // 
+            bntCadFuncionario.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             bntCadFuncionario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bntCadFuncionario.Location = new Point(27, 137);
             bntCadFuncionario.Name = "bntCadFuncionario";
@@ -57,6 +58,7 @@
             // 
             // btnCadProduto
             // 
+            btnCadProduto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             btnCadProduto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCadProduto.Location = new Point(27, 208);
             btnCadProduto.Name = "btnCadProduto";
@@ -68,6 +70,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(41, 34);
@@ -78,6 +81,7 @@
             // 
             // lblFucnionario
             // 
+            lblFucnionario.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             lblFucnionario.AutoSize = true;
             lblFucnionario.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFucnionario.Location = new Point(27, 78);
@@ -85,17 +89,17 @@
             lblFucnionario.Size = new Size(165, 40);
             lblFucnionario.TabIndex = 5;
             lblFucnionario.Text = "Funcionario\r\n";
+           
             // 
             // panel1
             // 
-            panel1.Controls.Add(btnCadVenda);
             panel1.Controls.Add(btnUser);
+            panel1.Controls.Add(btnCadVenda);
             panel1.Controls.Add(btnCadProduto);
             panel1.Controls.Add(btnSaida);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(bntCadFuncionario);
             panel1.Controls.Add(lblFucnionario);
-            panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(223, 849);
@@ -103,6 +107,7 @@
             // 
             // btnCadVenda
             // 
+            btnCadVenda.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             btnCadVenda.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCadVenda.Location = new Point(27, 279);
             btnCadVenda.Name = "btnCadVenda";
@@ -114,6 +119,7 @@
             // 
             // btnUser
             // 
+            btnUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             btnUser.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnUser.Location = new Point(27, 350);
             btnUser.Name = "btnUser";
@@ -125,7 +131,8 @@
             // 
             // btnSaida
             // 
-            btnSaida.Location = new Point(27, 543);
+            btnSaida.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            btnSaida.Location = new Point(27, 577);
             btnSaida.Name = "btnSaida";
             btnSaida.Size = new Size(179, 32);
             btnSaida.TabIndex = 6;
@@ -135,8 +142,8 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top;
             panel2.Controls.Add(lblTitulo);
-            panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(223, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(887, 78);
@@ -144,7 +151,7 @@
             // 
             // lblTitulo
             // 
-            lblTitulo.Dock = DockStyle.Fill;
+            lblTitulo.Anchor = AnchorStyles.Top;
             lblTitulo.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTitulo.Location = new Point(0, 0);
             lblTitulo.Name = "lblTitulo";
@@ -152,10 +159,11 @@
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "titulo da tela ";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
+            
             // 
             // painelPrincipal
             // 
-            painelPrincipal.Dock = DockStyle.Fill;
+            painelPrincipal.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             painelPrincipal.Location = new Point(223, 78);
             painelPrincipal.Name = "painelPrincipal";
             painelPrincipal.Size = new Size(887, 771);
@@ -172,6 +180,7 @@
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Tela Principal";
             Load += frmPrincipal_Load;
             panel1.ResumeLayout(false);

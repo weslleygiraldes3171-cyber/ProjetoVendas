@@ -13,6 +13,7 @@ namespace ProjetoVenda.view
     public partial class frmPrincipal : Form
     {
         private FuncionarioControle controller;
+        private Funcionario funcionario;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace ProjetoVenda.view
             forms.Dock = DockStyle.Fill;
 
             this.lblTitulo.Text = forms.Text;
-
+            
             painelPrincipal.Controls.Add(forms);
             forms.Show();
         }
@@ -78,5 +79,6 @@ namespace ProjetoVenda.view
             frmVenda frm = new frmVenda();
             exibirForms(frm);
         }
+        
     }
 }

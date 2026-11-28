@@ -9,6 +9,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using QuestPDF.Infrastructure;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
 
 
 
@@ -179,7 +182,8 @@ namespace ProjetoVenda.view
                     frmVenda_Load(this, EventArgs.Empty);
                     atualizarCarrinho();
                     MessageBox.Show("Venda cadastrada com sucesso!!!");
-                    relatorio.salvarPdf();
+                    
+                    //relatorio.salvarPdf();
                 }
                 else
                 {
